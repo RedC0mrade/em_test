@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from app.core.sql_models import Base, AuthorAlchemyModel, BookAlcemyModel, BorrowAlchemyModels
+from app.core.sql_models import Base, AuthorAlchemyModel, BookAlchemyModel, BorrowAlchemyModel
 from app.config import settings
 from app.core.sql_models import Base
 

@@ -18,7 +18,7 @@ async def get_all_borrows(session: AsyncSession = Depends(db_helper.session_depe
     return await crud.get_all_borrows(session=session)
 
 
-@borrows.get("/{id}", response_model=Borrows | None)
+@borrows.get("/{id}", response_model=Borrows)
 async def get_borrows(id: int,
                       session: AsyncSession = Depends(db_helper.session_dependency)):
     return await crud.get_borrows(id=id, session=session)

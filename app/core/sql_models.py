@@ -20,11 +20,11 @@ class AuthorAlchemyModel(Base):
     name: Mapped[str] = mapped_column(String(30), nullable=False)
     lastname: Mapped[str] = mapped_column(String(30), nullable=False)
     birth_date: Mapped[date] = mapped_column(nullable=False)
-    books: Mapped[list["BookAlcemyModel"]] = relationship(back_populates="author",
+    books: Mapped[list["BookAlchemyModel"]] = relationship(back_populates="author",
                                                           cascade="all, delete-orphan")
 
 
-class BookAlcemyModel(Base):
+class BookAlchemyModel(Base):
     __tablename__ = "books"
 
     title: Mapped[str] = mapped_column(String, nullable=False)
@@ -32,14 +32,16 @@ class BookAlcemyModel(Base):
     author_id: Mapped[int] = mapped_column(ForeignKey("authors.id"), nullable=False)
     available_copies: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
     author: Mapped["AuthorAlchemyModel"] = relationship(back_populates="books")
-    borrows: Mapped[list["BorrowAlchemyModels"]] = relationship("BorrowAlchemyModels", back_populates="book")
+    borrows: Mapped[list["BorrowAlchemyModel"]] = relationship("BorrowAlchemyModel",
+                                                               back_populates="book",
+                                                               cascade="all, delete-orphan")
 
 
-class BorrowAlchemyModels(Base):
+class BorrowAlchemyModel(Base):
     __tablename__ = "borrows"
  
     book_id: Mapped[int] = mapped_column(ForeignKey("books.id"), nullable=False)
     reader_name: Mapped[str] = mapped_column(String(30), nullable=False)
     borrow_date: Mapped[date] = mapped_column(nullable=False, default=date.today)
     return_date: Mapped[date] = mapped_column(nullable=True)
-    book: Mapped["BookAlcemyModel"] = relationship("BookAlcemyModel", back_populates="borrows")
+    book: Mapped["BookAlchemyModel"] = relationship("BookAlchemyModel", back_populates="borrows")

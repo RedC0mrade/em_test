@@ -24,7 +24,7 @@ async def get_all_books(session: AsyncSession = Depends(db_helper.session_depend
     return await crud.get_all_books(session=session)
 
 
-@books.put("/{id}", response_model=Book | None)
+@books.put("/{id}", response_model=Book)
 async def put_book(id: int,
                    book_in: CreateBook,
                    session: AsyncSession = Depends(db_helper.session_dependency)):    
