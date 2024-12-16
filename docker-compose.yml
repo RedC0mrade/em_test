@@ -22,7 +22,7 @@ services:
     environment:
       POSTGRES_USER: emUser
       POSTGRES_PASSWORD: emPassword
-      POSTGRES_DB: emdeDB
+      POSTGRES_DB: emDB
     ports:
       - "5432:5432"
     volumes:
@@ -41,7 +41,7 @@ services:
     depends_on:
       - db
     networks:
-      - kode_network
+      - em_network
 
 networks:
   em_network:
