@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict, Field
-from app.authors.schema import Author
+from app.schemas.authors import Author
 
 class BaseBook(BaseModel):
     """Базовый класс для книг с общими атрибутами."""

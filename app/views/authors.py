@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.authors import crud
-from app.authors.schema import CreateAuthor, Author
+from app.crud.authors import crud
+from app.schemas.authors import CreateAuthor, Author
 from app.core.engine import db_helper
 
 

@@ -2,7 +2,7 @@ from typing import List
 from sqlalchemy import Result, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.authors.schema import CreateAuthor
+from app.schemas.authors import CreateAuthor
 from app.core.sql_models import AuthorAlchemyModel
 from app.validations.authors import validate_author
 
@@ -12,9 +12,12 @@ async def create_author(
     session: AsyncSession
 ) -> AuthorAlchemyModel:
     """Создаёт нового автора и сохраняет его в базе данных."""
+    
     new_author = AuthorAlchemyModel(**author_in.model_dump())
     session.add(new_author)
+
     await session.commit()
+    
     return new_author
 
 

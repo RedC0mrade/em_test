@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import joinedload
 
 
-from app.borrows.schema import CreateBorrows
+from app.schemas.borrows import CreateBorrows
 from app.core.sql_models import BorrowAlchemyModel
 from app.validations.books import validate_book
 from app.validations.borrows import validate_borrows

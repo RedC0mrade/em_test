@@ -3,7 +3,7 @@ from sqlalchemy import Result, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import joinedload
 
-from app.books.schema import CreateBook
+from app.schemas.books import CreateBook
 from app.core.sql_models import BookAlchemyModel
 from app.validations.authors import validate_author
 from app.validations.books import validate_book

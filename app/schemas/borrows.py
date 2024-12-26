@@ -1,7 +1,7 @@
 from datetime import date
 from pydantic import BaseModel, ConfigDict, Field
 
-from app.books.schema import BookBorrow
+from app.schemas.books import BookBorrow
 
 
 class BaseBorrows(BaseModel):
